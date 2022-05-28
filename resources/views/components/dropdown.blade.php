@@ -27,7 +27,7 @@ switch ($width) {
 
 
 
-        <div class="hidden z-50 my-4 text-base list-none bg-white rounded divide-y divide-gray-100 shadow-md dark:bg-gray-700 dark:divide-gray-600" id="dropdown">
+        <div class="hidden z-50 my-4 text-base border-1 list-none bg-white rounded divide-y divide-gray-100 shadow-2xl dark:bg-gray-700 dark:divide-gray-600" id="dropdown">
             {{ $content }}
         </div>
 

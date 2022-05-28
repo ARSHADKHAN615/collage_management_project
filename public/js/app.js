@@ -5194,6 +5194,23 @@ new Chart(ctx1, {
     }
   }
 });
+var doughnut = document.getElementById("doChart");
+var myDoughnutChart = new Chart(doughnut, {
+  type: 'doughnut',
+  data: {
+    labels: ["Paid", "Unpaid", "Remaining"],
+    datasets: [{
+      label: ['$2500', '$1800', '$2300'],
+      data: [2500, 1800, 2300],
+      backgroundColor: ['#29cc97', '#D83121', '#fec402'],
+      borderColor: ['#29cc97', '#D83121', '#fec402']
+    }]
+  },
+  options: {
+    responsive: true,
+    cutoutPercentage: 80
+  }
+});
 
 /***/ }),
 

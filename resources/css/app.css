@@ -10,10 +10,16 @@ body {
   /* background-image: radial-gradient(50% 50% at center, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);  */
   /* background-image: radial-gradient(50% 50% at center, rgba(178,154,255,1) 15%, rgba(148,187,233,1) 100%);
   background-size: 400px 400px  ; */
-  background-color: #91cdff;
-  background-image: linear-gradient(201deg, #91cdff 0%, #878bdb 100%);
 }
 
+@layer {
+  .body-bg {
+    background-color: #91cdff;
+    background-image: linear-gradient(201deg, #91cdff 0%, #878bdb 100%);
+  }
+
+
+}
 .nav-active {
   @apply md:text-blue-700 font-semibold text-base;
 }

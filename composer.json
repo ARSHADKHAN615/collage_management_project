@@ -12,7 +12,8 @@
         "laravel/tinker": "^2.7",
         "livewire/livewire": "^2.10",
         "rappasoft/laravel-authentication-log": "^2.0",
-        "spatie/laravel-permission": "^5.5"
+        "spatie/laravel-permission": "^5.5",
+        "torann/geoip": "^3.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

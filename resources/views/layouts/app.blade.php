@@ -8,14 +8,12 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-    <!-- Styles -->
+    {{-- Styles --}}
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @livewireStyles
+    @stack('styles')
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
     {{-- Dark mode script --}}
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -26,20 +24,14 @@
             document.documentElement.classList.remove('dark')
         }
     </script>
-    @livewireStyles
 </head>
 
-<body class="font-sans antialiased dark:bg-gray-900">
+<body class="font-sans antialiased body-bg ">
+    <div class="toast_box absolute flex flex-col z-50 w-full items-center mt-12"></div>
     @include('layouts.navigation')
-    <div class="m-10 py-10 h-full dash-board-glass rounded-3xl shadow-xl">
-        <!-- Page Heading -->
-        {{-- <header class="bg-white shadow">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    {{ $header }}
-                </div>
-            </header> --}}
 
-        <!-- Page Content -->
+    {{-- Page Content --}}
+    <div class="m-10 py-10 h-full dash-board-glass dark:bg-slate-700  rounded-3xl shadow-xl">
         <main>
             {{ $slot }}
         </main>
@@ -72,10 +64,13 @@
                 href="https://flowbite.com" class="hover:underline">Flowbite™</a>. All Rights Reserved.
         </span>
     </footer>
-    @livewireScripts
+
+    {{-- Scripts --}}
     <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
+    <script src="{{ asset('js/app.js') }}"></script>
+    @livewireScripts
+    @stack('scripts')
 </body>
 
 </html>
