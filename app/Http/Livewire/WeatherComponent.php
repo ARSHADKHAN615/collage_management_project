@@ -12,9 +12,11 @@ class WeatherComponent extends Component
     public $Temp;
     public $image;
     public $localtime;
+    public $clientIP;
 
     public function getWeather()
     {
+        $this->clientIP = Request::getClientIp(true);
         $clientIP = Request::getClientIp(true);
         $response = Http::get('http://api.weatherapi.com/v1/current.json?key=6a8bf500e522454f967112501221303&q='.$clientIP.'&aqi=yes')->collect();
         $this->locationName = $response['location']['name'];

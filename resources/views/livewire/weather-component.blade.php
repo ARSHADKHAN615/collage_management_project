@@ -65,6 +65,7 @@
         </div>
     </div>
     <div class="flex flex-wrap xl:flex-nowrap">
+        {{$clientIP}}
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{ $locationName }}
             <br />
             {{ $Temp }} <sup>&deg;C</sup>
