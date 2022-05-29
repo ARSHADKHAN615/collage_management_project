@@ -19,7 +19,12 @@ class LastLogin extends Component
      */
     public function __construct()
     {
-        $data = AuthenticationLog::where('authenticatable_id', auth()->user()->id)->orderBy('id', 'desc')->slice(1)->first()->toArray();
+        $data = AuthenticationLog::where(['authenticatable_id' => auth()->user()->id])->orderBy('id', 'desc')->get()->slice(1)->first();
+        
+        if (!$data) {
+            $data = AuthenticationLog::where(['authenticatable_id' => auth()->user()->id])->orderBy('id', 'desc')->first();
+        }
+        $data->toArray();
         $this->lastLogin =  Carbon::parse($data['login_at'])->isoFormat('lll');
         $this->lastLoginFromState =  $data['location']['state_name'];
         $this->lastLoginFromCountry =  $data['location']['country'];

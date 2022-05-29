@@ -16,6 +16,7 @@ class WeatherComponent extends Component
     public function getWeather()
     {
         $this->clientIP = Request::getClientIp(true);
+        $this->clientIP = $this->clientIP == '127.0.0.1' ? '2402:3a80:8c8:59af:9595:1265:6c0d:a17d': $this->clientIP;
         $response = Http::get('http://api.weatherapi.com/v1/current.json?key=6a8bf500e522454f967112501221303&q='.$this->clientIP.'&aqi=yes')->collect();
         $this->locationName = $response['location']['name'];
         $this->Temp =  $response['current']['temp_c'];
