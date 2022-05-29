@@ -4,8 +4,8 @@ namespace App\Http\Livewire;
 
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Request ;
 use Livewire\Component;
-
 class WeatherComponent extends Component
 {
     public $locationName;
@@ -15,7 +15,8 @@ class WeatherComponent extends Component
 
     public function getWeather()
     {
-        $response = Http::get('http://api.weatherapi.com/v1/current.json?key=6a8bf500e522454f967112501221303&q=2405:205:c908:3498:8045:9d88:89de:22d0&aqi=yes')->collect();
+        $clientIP = Request::getClientIp(true);
+        $response = Http::get('http://api.weatherapi.com/v1/current.json?key=6a8bf500e522454f967112501221303&q='.$clientIP.'&aqi=yes')->collect();
         $this->locationName = $response['location']['name'];
         $this->Temp =  $response['current']['temp_c'];
         $this->localtime = Carbon::parse($response['location']['localtime'])->isoFormat('lll');

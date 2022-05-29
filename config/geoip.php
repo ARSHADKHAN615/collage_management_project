@@ -158,7 +158,7 @@ return [
         'lon' => -72.92,
         'timezone' => 'America/New_York',
         'continent' => 'NA',
-        'default' => true,
+        'default' => f,
         'currency' => 'USD',
     ],
 
