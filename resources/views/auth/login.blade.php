@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="bg-blue-100 w-screen flex justify-center items-center overflow-hidden">
-        <div class="bg-glass m-0 lg:m-24 md:m-24 p-2 rounded-3xl flex flex-wrap">
+        <div class="bg-glass m-0 lg:m-24 md:m-24 p-2 md:rounded-3xl flex flex-wrap justify-center">
             <div class="p-3 mb-6 md:mb-0 md:w-3/6">
                 <div class="grid md:grid-rows-2 gap-6 h-full">
                     <div class="row-span-2 mt-16">
