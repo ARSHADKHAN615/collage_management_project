@@ -3,12 +3,12 @@
         class="code-preview shadow-lg bg-gradient-to-r bg-white  border border-gray-200 dark:border-gray-700 p-2 sm:p-6 dark:bg-gray-800">
         <nav class="px-2 bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700">
             <div class="container flex flex-wrap items-center justify-between mx-auto">
-                <a href="#" class="flex items-center">
+                <a href="{{route('profile')}}" class="flex items-center" id="third-element-introduction">
                     <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-10" alt="Flowbite Logo">
                     <span
                         class="self-center text-gray-700 text-xl font-semibold whitespace-nowrap dark:text-white font-Rubik">Arshad</span>
                 </a>
-                <div class="flex items-center md:order-2">
+                <div class="flex items-center md:order-2" id="second-element-introduction">
                     <x-dropdown align="right" width="48">
                         <x-slot name="trigger">
                             <button type="button"
@@ -43,6 +43,11 @@
                                     class="block text-sm font-medium text-gray-500 truncate dark:text-gray-400">{{ Auth::user()->email }}</span>
                             </div>
                             <ul class="py-1" aria-labelledby="dropdown">
+                                <li>
+                                    <x-dropdown-link :href="route('profile')">
+                                        {{ __('Profile') }}
+                                    </x-dropdown-link>
+                                </li>
                                 <li>
                                     <form method="POST" action="{{ route('logout') }}">
                                         @csrf
@@ -91,7 +96,8 @@
                     </svg>
                 </button>
                 <div class="hidden w-full md:block md:w-auto" id="mobile-menu">
-                    <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium">
+                    <ul class="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium"
+                        id="first-element-introduction">
 
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
 
@@ -105,17 +111,9 @@
                             <span class="block">{{ __('Dashboard') }}</span>
 
                         </x-nav-link>
-                        <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboards')">
-
-                            <svg class="w-6 h-6" data-darkreader-inline-stroke="" fill="none"
-                                stroke="currentColor" style="--darkreader-inline-stroke:currentColor;"
-                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
-                                </path>
-                            </svg>
-                            <span class="block">{{ __('Services') }}</span>
-
+                        <x-nav-link :href="route('studentList')" :active="request()->routeIs('studentList')">
+                            <svg class="w-6 h-6" data-darkreader-inline-stroke="" fill="none" stroke="currentColor" style="--darkreader-inline-stroke:currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 14l9-5-9-5-9 5 9 5z"></path><path d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>                
+                            <span class="block">{{ __('Student List') }}</span>
                         </x-nav-link>
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard3')">
                             <svg class="w-6 h-6" data-darkreader-inline-stroke="" fill="none"

@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\UserProfileController;
+use App\Http\Livewire\Student\StudentList;
+use App\Http\Livewire\Test;
+use App\Http\Livewire\UserProfile;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +24,12 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+
+
+Route::get('/profile',[UserProfileController::class,'index'])->name('profile');
+Route::get('/studentList',StudentList::class)->name('studentList');
+
+
 
 require __DIR__.'/auth.php';

@@ -3,14 +3,21 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="application-name" content="{{ config('app.name') }}">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name') }}</title>
 
-    {{-- Styles --}}
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <!-- Styles -->
+    <style>
+        [x-cloak] {
+            display: none !important;
+        }
+    </style>
     @livewireStyles
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @stack('styles')
 
 
@@ -31,10 +38,8 @@
     @include('layouts.navigation')
 
     {{-- Page Content --}}
-    <div class="m-0 lg:m-10 md:m-9 py-10 h-full dash-board-glass dark:bg-slate-700  md:rounded-3xl shadow-xl">
-        <main>
+    <div class="m-0 lg:m-10 md:m-9  h-full dash-board-glass dark:bg-slate-700  md:rounded-3xl shadow-xl">
             {{ $slot }}
-        </main>
     </div>
 
     <footer class="p-4 bg-white  shadow md:px-6 md:py-8 dark:bg-gray-800">
@@ -68,9 +73,11 @@
     {{-- Scripts --}}
     <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://unpkg.com/driver.js/dist/driver.min.js"></script>
     @livewireScripts
+    <script src="{{ asset('js/app.js') }}"></script>
     @stack('scripts')
 </body>
+
 
 </html>

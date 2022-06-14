@@ -1,10 +1,12 @@
-require('./bootstrap');
+import Alpine from 'alpinejs'
+import FormsAlpinePlugin from '../../vendor/filament/forms/dist/module.esm'
+import Focus from '@alpinejs/focus'
+Alpine.plugin(FormsAlpinePlugin)
+Alpine.plugin(Focus)
+window.Alpine = Alpine
 
-import Alpine from 'alpinejs';
+Alpine.start()
 
-window.Alpine = Alpine;
-
-Alpine.start();
 
 var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
 var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
@@ -47,105 +49,40 @@ themeToggleBtn.addEventListener('click', function () {
 
 });
 
-
-
-var ctx1 = document.getElementById("chart-line").getContext("2d");
-
-var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
-
-gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
-gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
-gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
-new Chart(ctx1, {
-    type: "line",
-    data: {
-        labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        datasets: [{
-            label: "Mobile apps",
-            tension: 0.4,
-            borderWidth: 0,
-            pointRadius: 0,
-            borderColor: "#5e72e4",
-            backgroundColor: gradientStroke1,
-            borderWidth: 3,
-            fill: true,
-            data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-            maxBarThickness: 6
-
-        }],
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                display: false,
-            }
-        },
-        interaction: {
-            intersect: false,
-            mode: 'index',
-        },
-        scales: {
-            y: {
-                grid: {
-                    drawBorder: false,
-                    display: true,
-                    drawOnChartArea: true,
-                    drawTicks: false,
-                    borderDash: [5, 5]
-                },
-                ticks: {
-                    display: true,
-                    padding: 10,
-                    // color: '#67748e',
-                    color: '#ccc',
-                    font: {
-                        size: 11,
-                        family: "Nunito",
-                        style: 'normal',
-                        lineHeight: 2
-                    },
+const driver = new Driver();
+        driver.defineSteps([{
+                element: '#first-element-introduction',
+                popover: {
+                    className: 'first-step-popover-class',
+                    title: 'Title on Popover',
+                    description: 'Body of the popover',
+                    position: 'bottom',
                 }
             },
-            x: {
-                grid: {
-                    drawBorder: false,
-                    display: false,
-                    drawOnChartArea: false,
-                    drawTicks: false,
-                    borderDash: [5, 5]
-                },
-                ticks: {
-                    display: true,
-                    color: '#ccc',
-                    padding: 20,
-                    font: {
-                        size: 11,
-                        family: "Nunito",
-                        style: 'normal',
-                        lineHeight: 2
-                    },
+            {
+                element: '#second-element-introduction',
+                popover: {
+                    title: 'Title on Popover',
+                    description: 'Body of the popover',
+                    position: 'left',
                 }
             },
-        },
-    },
-});
-
-var doughnut = document.getElementById("doChart");
-var myDoughnutChart = new Chart(doughnut, {
-    type: 'doughnut',
-    data: {
-        labels: ["Paid", "Unpaid", "Remaining"],
-        datasets: [{
-            label: ['$2500', '$1800', '$2300'],
-            data: [2500, 1800, 2300],
-            backgroundColor: ['#29cc97', '#D83121', '#fec402'],
-            borderColor: ['#29cc97', '#D83121', '#fec402']
-        }]
-    },
-    options: {
-        responsive: true,
-        cutoutPercentage: 80,
-    }
-});
+            {
+                element: '#third-element-introduction',
+                popover: {
+                    title: 'Title on Popover',
+                    description: 'Body of the popover',
+                    position: 'bottom'
+                }
+            },
+            {
+                element: '#fourth-element-introduction',
+                popover: {
+                    title: 'Title on Popover',
+                    description: 'Body of the popover',
+                    position: 'bottom'
+                }
+            },
+        ]);
+        // Start the introduction
+        // driver.start();
