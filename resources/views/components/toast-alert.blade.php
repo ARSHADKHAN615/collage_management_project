@@ -9,6 +9,6 @@
                     clip-rule="evenodd"></path>
             </svg>
         </div>
-        <div class="ml-3 text-sm font-semibold">{{$message}}</div>
+        <div class="ml-3 text-sm font-medium">{{$message}}</div>
         
     </div>

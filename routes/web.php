@@ -1,9 +1,9 @@
 <?php
 
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Livewire\Student\StudentEdit;
 use App\Http\Livewire\Student\StudentList;
-use App\Http\Livewire\Test;
-use App\Http\Livewire\UserProfile;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,8 +28,10 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/profile',[UserProfileController::class,'index'])->name('profile');
-Route::get('/studentList',StudentList::class)->name('studentList');
-
-
+Route::group(['middleware' => ['role:admin|faculty']], function () {
+    Route::get('/studentList',StudentList::class)->name('studentList');
+    Route::get('/student/{student}/edit',StudentEdit::class)->name('student.edit');
+    Route::get('/student/{student}/report',[StudentController::class,'StudentReport'])->name('student.report');
+});
 
 require __DIR__.'/auth.php';

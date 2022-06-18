@@ -1,6 +1,7 @@
+@section('title', 'Sign In')
 <x-guest-layout>
     <div class="bg-blue-100 w-screen flex justify-center items-center overflow-hidden">
-        <div class="bg-glass m-0 lg:m-24 md:m-24 p-2 md:rounded-3xl flex flex-wrap justify-center">
+        <div class="bg-glass m-0 lg:m-24 md:m-24 p-2 md:rounded-3xl flex flex-wrap justify-center ">
             <div class="p-3 mb-6 md:mb-0 md:w-3/6">
                 <div class="grid md:grid-rows-2 gap-6 h-full">
                     <div class="row-span-2 mt-16">
@@ -55,8 +56,8 @@
                 </div>
             </div>
             <div class="rounded-2xl sm:w-full md:w-3/6 overflow-hidden">
-                <img src="https://images.unsplash.com/photo-1652904337541-20ce14bb86a7?crop=entropy&cs=tinysrgb&fm=jpg&ixlib=rb-1.2.1&q=80&raw_url=true&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=764"
-                    height="400px" />
+                <img src="https://images.unsplash.com/photo-1599634875158-597d3f647df6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=675&q=80"
+                    height="300px" />
             </div>
         </div>
     </div>

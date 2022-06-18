@@ -19,13 +19,25 @@
                     </div>
                 </x-slot>
                 <x-slot name="body">
-                    <h3 class="text-base font-medium dark:text-white">Total:</h3>
+                    <h3 class="text-base font-medium dark:text-white">Login as:</h3>
                     <h6 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-                        *******
+                        @role('admin')
+                            Admin
+                        @endrole
+                        @role('faculty')
+                            Faculty
+                        @endrole
+                        @role('student')
+                            Student
+                        @endrole
                     </h6>
                 </x-slot>
                 <x-slot name="footer">
-                    Footer text
+                    <a href="{{ route('profile') }}" target="_d">
+                    <button type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">
+                            {{ __('Go to Profile') }}
+                      </button>
+                    </a>
                 </x-slot>
             </x-dashboard-cards>
 
@@ -124,8 +136,8 @@
                     </div>
 
                     <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-                        <button type="button" class="w-3 h-3 rounded-full bg-white dark:bg-gray-800" aria-current="true"
-                            aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                        <button type="button" class="w-3 h-3 rounded-full bg-white dark:bg-gray-800"
+                            aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
                         <button type="button"
                             class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
                             aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
@@ -161,7 +173,8 @@
                             class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                             <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5l7 7-7 7">
                                 </path>
                             </svg>
                             <span class="hidden">Next</span>

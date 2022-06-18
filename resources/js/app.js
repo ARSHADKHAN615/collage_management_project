@@ -1,8 +1,12 @@
 import Alpine from 'alpinejs'
 import FormsAlpinePlugin from '../../vendor/filament/forms/dist/module.esm'
 import Focus from '@alpinejs/focus'
+import Tooltip from "@ryangjchandler/alpine-tooltip";
+
+Alpine.plugin(Tooltip);
 Alpine.plugin(FormsAlpinePlugin)
 Alpine.plugin(Focus)
+
 window.Alpine = Alpine
 
 Alpine.start()
@@ -50,39 +54,40 @@ themeToggleBtn.addEventListener('click', function () {
 });
 
 const driver = new Driver();
-        driver.defineSteps([{
-                element: '#first-element-introduction',
-                popover: {
-                    className: 'first-step-popover-class',
-                    title: 'Title on Popover',
-                    description: 'Body of the popover',
-                    position: 'bottom',
-                }
-            },
-            {
-                element: '#second-element-introduction',
-                popover: {
-                    title: 'Title on Popover',
-                    description: 'Body of the popover',
-                    position: 'left',
-                }
-            },
-            {
-                element: '#third-element-introduction',
-                popover: {
-                    title: 'Title on Popover',
-                    description: 'Body of the popover',
-                    position: 'bottom'
-                }
-            },
-            {
-                element: '#fourth-element-introduction',
-                popover: {
-                    title: 'Title on Popover',
-                    description: 'Body of the popover',
-                    position: 'bottom'
-                }
-            },
-        ]);
-        // Start the introduction
-        // driver.start();
+driver.defineSteps([{
+    element: '#first-element-introduction',
+    popover: {
+        className: 'first-step-popover-class',
+        title: 'Title on Popover',
+        description: 'Body of the popover',
+        position: 'bottom',
+    }
+},
+{
+    element: '#second-element-introduction',
+    popover: {
+        title: 'Title on Popover',
+        description: 'Body of the popover',
+        position: 'left',
+    }
+},
+{
+    element: '#third-element-introduction',
+    popover: {
+        title: 'Title on Popover',
+        description: 'Body of the popover',
+        position: 'bottom'
+    }
+},
+{
+    element: '#fourth-element-introduction',
+    popover: {
+        title: 'Title on Popover',
+        description: 'Body of the popover',
+        position: 'bottom'
+    }
+},
+]);
+// Start the introduction
+localStorage.getItem('first-time-user') != 'true' ? driver.start() : null;
+localStorage.setItem('first-time-user', 'true');
