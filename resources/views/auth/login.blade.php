@@ -1,9 +1,9 @@
 @section('title', 'Sign In')
 <x-guest-layout>
     <div class="bg-blue-100 w-screen flex justify-center items-center overflow-hidden">
-        <div class="bg-glass m-0 lg:m-24 md:m-24 p-2 md:rounded-3xl flex flex-wrap justify-center ">
-            <div class="p-3 mb-6 md:mb-0 md:w-3/6">
-                <div class="grid md:grid-rows-2 gap-6 h-full">
+        <div class="bg-glass m-0 lg:m-24 md:m-24 p-2 md:rounded-3xl flex flex-wrap justify-center w-3/4">
+            <div class="md:w-2/4 lg:w-2/4 w-full">
+                <div class="md:px-6 p-4 relative h-full">
                     <div class="row-span-2 mt-16">
                         <!-- Session Status -->
                         <x-auth-session-status class="mb-4" :status="session('status')" />
@@ -33,7 +33,7 @@
                                     me</label>
                             </div>
 
-                            <div class="flex items-center justify-end mt-4">
+                            <div class="flex items-center justify-end my-1">
                                 @if (Route::has('password.request'))
                                     <a class="text-sm text-gray-600 hover:text-gray-900"
                                         href="{{ route('password.request') }}">
@@ -41,12 +41,12 @@
                                     </a>
                                 @endif
                             </div>
-                            <x-button class="ml-3">
+                            <x-button>
                                 {{ __('Sign In') }}
                             </x-button>
                         </form>
                     </div>
-                    <div class="flex items-center self-end">
+                    <div class="md:absolute left-6 bottom-0 my-2">
                         <img alt="" class="w-8"
                             src="https://cdn-icons.flaticon.com/png/512/5436/premium/5436970.png?token=exp=1643870868~hmac=3da1c0a2eefe8eef53ffdb1216f82ee5"
                             srcset="" />
@@ -55,9 +55,9 @@
                     </div>
                 </div>
             </div>
-            <div class="rounded-2xl sm:w-full md:w-3/6 overflow-hidden">
+            <div class="rounded-2xl overflow-hidden md:w-2/4 lg:w-2/4 w-full">
                 <img src="https://images.unsplash.com/photo-1599634875158-597d3f647df6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=675&q=80"
-                    height="300px" />
+                      class="login_image"/>
             </div>
         </div>
     </div>

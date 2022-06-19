@@ -1,6 +1,6 @@
 <x-guest-layout>
     <div class="bg-blue-100 w-screen flex justify-center items-center overflow-hidden h-screen">
-        <div class="bg-glass m-24 p-2 rounded-3xl w-3/6">
+        <div class="bg-glass md:m-24 m-2 p-2 rounded-3xl md:w-3/6 w-full">
             <div class="p-3 mb-6 md:mb-0 md:w-full">
                 <div class="h-full">
                     <div class="row-span-2 mt-2">
@@ -28,12 +28,12 @@
                                 <x-label for="password_confirmation" :value="__('Confirm Password')" />
                                 <x-input type="password" id="password_confirmation" name="password_confirmation" required />
                             </div>                
-                            <div class="flex items-center justify-end mt-4">
+                            <div class="flex items-center justify-end my-2">
                                 <a class="text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                                     {{ __('Already registered?') }}
                                 </a>
                             </div>
-                            <x-button class="ml-3">
+                            <x-button>
                                 {{ __('Register') }}
                             </x-button>
                         </form>

@@ -1,3 +1,4 @@
+@section('title', 'Welcome back, ' . Auth::user()->name)
 <x-app-layout>
     <div class="py-10">
         <div class="flex justify-around flex-wrap">

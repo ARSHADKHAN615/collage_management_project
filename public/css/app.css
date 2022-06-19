@@ -2598,6 +2598,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   top: 0.75rem;
 }.right-3{
   right: 0.75rem;
+}.left-6{
+  left: 1.5rem;
 }.z-20{
   z-index: 20;
 }.z-10{
@@ -2644,6 +2646,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin: 0px;
 }.\!m-0{
   margin: 0px !important;
+}.m-4{
+  margin: 1rem;
+}.m-2{
+  margin: 0.5rem;
 }.mx-auto{
   margin-left: auto;
   margin-right: auto;
@@ -2680,6 +2686,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.-my-3{
   margin-top: -0.75rem;
   margin-bottom: -0.75rem;
+}.my-2{
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
 }.mb-2{
   margin-bottom: 0.5rem;
 }.mr-2{
@@ -2804,8 +2813,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   height: 2.25rem;
 }.h-11{
   height: 2.75rem;
-}.h-96{
-  height: 24rem;
 }.min-h-screen{
   min-height: 100vh;
 }.min-h-full{
@@ -2827,6 +2834,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 }.w-screen{
   width: 100vw;
 }.w-3\/6{
+  width: 50%;
+}.w-3\/4{
+  width: 75%;
+}.w-2\/4{
   width: 50%;
 }.w-4{
   width: 1rem;
@@ -3749,6 +3760,11 @@ body::-webkit-scrollbar-thumb {
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(6.5px);
   -webkit-backdrop-filter: blur(6.5px);
+}.login_image{
+  width: 100% !important;
+  height: 600px !important;
+  -o-object-fit: cover;
+     object-fit: cover;
 }.dash-board-glass {
   background: rgba(255, 255, 255, 0.25);
   /* box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 ); */
@@ -4546,8 +4562,6 @@ body::-webkit-scrollbar-thumb {
     width: 2.5rem;
   }.sm\:w-6{
     width: 1.5rem;
-  }.sm\:w-full{
-    width: 100%;
   }.sm\:w-auto{
     width: auto;
   }.sm\:max-w-md{
@@ -4616,7 +4630,9 @@ body::-webkit-scrollbar-thumb {
   }.sm\:text-right{
     text-align: right;
   }
-}@media (min-width: 768px){.md\:bottom-0{
+}@media (min-width: 768px){.md\:absolute{
+    position: absolute;
+  }.md\:bottom-0{
     bottom: 0px;
   }.md\:top-auto{
     top: auto;
@@ -4678,12 +4694,14 @@ body::-webkit-scrollbar-thumb {
     width: 40%;
   }.md\:w-full{
     width: 100%;
-  }.md\:w-3\/6{
-    width: 50%;
   }.md\:w-1\/5{
     width: 20%;
   }.md\:w-auto{
     width: auto;
+  }.md\:w-2\/4{
+    width: 50%;
+  }.md\:w-3\/6{
+    width: 50%;
   }.md\:max-w-md{
     max-width: 28rem;
   }.md\:flex-1{
@@ -4712,10 +4730,6 @@ body::-webkit-scrollbar-thumb {
     grid-template-columns: repeat(11, minmax(0, 1fr));
   }.md\:grid-cols-12{
     grid-template-columns: repeat(12, minmax(0, 1fr));
-  }.md\:grid-rows-2{
-    grid-template-rows: repeat(2, minmax(0, 1fr));
-  }.md\:grid-rows-1{
-    grid-template-rows: repeat(1, minmax(0, 1fr));
   }.md\:flex-row{
     flex-direction: row;
   }.md\:items-start{
@@ -4800,6 +4814,8 @@ body::-webkit-scrollbar-thumb {
     display: none;
   }.lg\:h-3\/6{
     height: 50%;
+  }.lg\:w-2\/4{
+    width: 50%;
   }.lg\:grid-cols-1{
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }.lg\:grid-cols-2{
