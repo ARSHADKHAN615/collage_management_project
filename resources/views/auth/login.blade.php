@@ -1,7 +1,7 @@
 @section('title', 'Sign In')
 <x-guest-layout>
-    <div class="bg-blue-100 w-screen flex justify-center items-center overflow-hidden">
-        <div class="bg-glass m-0 lg:m-24 md:m-24 p-2 md:rounded-3xl flex flex-wrap justify-center w-3/4">
+    <div class="bg-blue-100 w-full flex justify-center items-center overflow-hidden">
+        <div class="bg-glass m-4 lg:m-24 md:m-24 p-2 rounded-3xl flex flex-wrap justify-center md:w-3/4">
             <div class="md:w-2/4 lg:w-2/4 w-full">
                 <div class="md:px-6 p-4 relative h-full">
                     <div class="row-span-2 mt-16">

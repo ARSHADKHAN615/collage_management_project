@@ -1,7 +1,7 @@
 <x-guest-layout>
 
     <div class="bg-blue-100 w-screen flex justify-center items-center overflow-hidden h-screen">
-        <div class="bg-glass m-24 p-2 rounded-3xl w-3/6">
+        <div class="bg-glass m-4 md:m-24 p-2 rounded-3xl md:w-3/6 w-full">
             <div class="p-3 mb-6 md:mb-0 md:w-full">
                 <div class="h-full">
                     <div class="row-span-2 mt-2">
@@ -27,7 +27,7 @@
                                 <x-label for="password_confirmation" :value="__('Confirm Password')" />
                                 <x-input type="password" id="password_confirmation" name="password_confirmation" required />
                             </div>
-                            <x-button class="ml-3">
+                            <x-button>
                                 {{ __('Reset Password') }}
                             </x-button>
                         </form>
