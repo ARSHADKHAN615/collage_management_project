@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\UserProfileController;
+use App\Http\Livewire\Notification\SendViaMail;
 use App\Http\Livewire\Student\StudentEdit;
 use App\Http\Livewire\Student\StudentList;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ Route::group(['middleware' => ['role:admin|faculty']], function () {
     Route::get('/studentList',StudentList::class)->name('studentList');
     Route::get('/student/{student}/edit',StudentEdit::class)->name('student.edit');
     Route::get('/student/{student}/report',[StudentController::class,'StudentReport'])->name('student.report');
+    Route::get('/Notification/viaMail',SendViaMail::class)->name('notification.mail');
 });
 
 require __DIR__.'/auth.php';

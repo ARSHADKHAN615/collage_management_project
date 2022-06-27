@@ -21,6 +21,10 @@ use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use pxlrbt\FilamentExcel\Columns\Column;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
 class StudentList extends Component implements HasTable
 {
@@ -30,18 +34,7 @@ class StudentList extends Component implements HasTable
     {
         return Student::query();
     }
-    public function isTableSearchable(): bool
-    {
-        return true;
-    }
-    protected function applySearchToTableQuery(Builder $query): Builder
-    {
-        if (filled($searchQuery = $this->getTableSearchQuery())) {
-            $query->whereIn('id', Student::search($searchQuery)->keys());
-        }
 
-        return $query;
-    }
     protected function getTableColumns(): array
     {
         return [
@@ -60,13 +53,6 @@ class StudentList extends Component implements HasTable
         ];
     }
 
-    protected function getTableFilters(): array
-    {
-        return [
-            MultiSelectFilter::make('course')->relationship('course', 'course_name'),
-            TernaryFilter::make('paid_status')->placeholder('All')->trueLabel('Paid')->falseLabel('Unpaid'),
-        ];
-    }
     protected function getTableBulkActions(): array
     {
         return [
@@ -74,7 +60,27 @@ class StudentList extends Component implements HasTable
                 ->action(fn (Collection $records) => $records->each->delete())
                 ->deselectRecordsAfterCompletion()
                 ->color('danger')
+                ->icon('heroicon-o-trash')
                 ->requiresConfirmation(),
+
+                ExportBulkAction::make()->exports([
+                    ExcelExport::make()->withColumns([
+                        Column::make('student_name')->heading('Student Name'),
+                        Column::make('student_email')->heading('Student Email'),
+                        Column::make('course.course_name')->heading('Course'),
+                        Column::make('unpaid fees')
+                        ->format(NumberFormat::FORMAT_CURRENCY_INR_SIMPLE)
+                        ->formatStateUsing(fn ($record): string => ($record->course->course_fees - $record->paid_fees)),
+                        Column::make('student_image')
+                        ->formatStateUsing(fn ($state) => public_path('storage/').$state ),
+                        Column::make('paid_status')
+                            ->formatStateUsing(fn ($state) => $state == 0 ? "Unpaid" : "Paid"),
+                        Column::make('status')
+                            ->formatStateUsing(fn ($state) => $state == 0 ? "Deactivate" : "Active"),
+                    ])
+                    ->askForFilename()
+                    ->askForWriterType(),
+                ])->icon('heroicon-o-document-report')
         ];
     }
     protected function getTableActions(): array
@@ -91,6 +97,25 @@ class StudentList extends Component implements HasTable
                 // ->openUrlInNewTab()
                 ->icon('heroicon-s-document-report')->visible(User::find(Auth::user()->id)->hasAnyRole('admin','student'))->color('success')->tooltip(fn (Model $record): string => "{$record->student_name} Report"),
         ];
+    }
+    protected function getTableFilters(): array
+    {
+        return [
+            MultiSelectFilter::make('course')->relationship('course', 'course_name'),
+            TernaryFilter::make('paid_status')->placeholder('All')->trueLabel('Paid')->falseLabel('Unpaid'),
+        ];
+    }
+    public function isTableSearchable(): bool
+    {
+        return true;
+    }
+    protected function applySearchToTableQuery(Builder $query): Builder
+    {
+        if (filled($searchQuery = $this->getTableSearchQuery())) {
+            $query->whereIn('id', Student::search($searchQuery)->keys());
+        }
+
+        return $query;
     }
     public function render(): View
     {
