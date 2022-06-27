@@ -69,7 +69,7 @@ class StudentList extends Component implements HasTable
                         Column::make('student_email')->heading('Student Email'),
                         Column::make('course.course_name')->heading('Course'),
                         Column::make('unpaid fees')
-                        ->format(NumberFormat::FORMAT_CURRENCY_INR_SIMPLE)
+                        ->format(NumberFormat::FORMAT_CURRENCY_USD_SIMPLE)
                         ->formatStateUsing(fn ($record): string => ($record->course->course_fees - $record->paid_fees)),
                         Column::make('student_image')
                         ->formatStateUsing(fn ($state) => public_path('storage/').$state ),
