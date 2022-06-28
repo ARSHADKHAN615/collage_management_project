@@ -38,7 +38,10 @@ class StudentList extends Component implements HasTable
     protected function getTableColumns(): array
     {
         return [
-            ImageColumn::make('student_image')->rounded()->extraImgAttributes(['title' => 'student_name']),
+            ImageColumn::make('student_image')
+            ->rounded()
+            ->disk('public_uploads')
+            ->extraImgAttributes(['title' => 'student_name']),
             TextColumn::make('student_name')->sortable(),
             TextColumn::make('student_email'),
             TextColumn::make('course.course_name'),

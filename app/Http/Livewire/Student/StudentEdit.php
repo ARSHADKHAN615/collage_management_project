@@ -64,7 +64,7 @@ class StudentEdit extends Component implements HasForms
                         ->onIcon('heroicon-s-check')
                         ->offIcon('heroicon-s-x')
                         ,
-                        FileUpload::make('student_image'),
+                        FileUpload::make('student_image')->disk('public_uploads'),
                 ])->columns(2)
         ];
     }
