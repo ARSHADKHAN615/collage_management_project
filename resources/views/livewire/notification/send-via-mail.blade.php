@@ -32,11 +32,11 @@
 
         });
 
-        window.livewire.onError(statusCode => {
-            if (statusCode === 500) {
-                alert('Your own message');
-            }
-            return false;
-        });
+        // window.livewire.onError(statusCode => {
+        //     if (statusCode === 500) {
+        //         alert('Your own message');
+        //     }
+        //     return false;
+        // });
     </script>
 @endpush

@@ -20,7 +20,7 @@ class SendViaMail extends Component implements HasForms
     use InteractsWithForms;
     public $title = '';
     public $content = '';
-    public $to = '';
+    // public $to = '';
     public function mount(): void
     {
         $this->form->fill();
@@ -29,7 +29,8 @@ class SendViaMail extends Component implements HasForms
     {
         return [
             MultiSelect::make('to')
-                ->getSearchResultsUsing(fn (string $search) => Course::where('course_name', 'like', "%{$search}%")->limit(50)->pluck('course_name', 'id')),
+                ->getSearchResultsUsing(fn (string $search) => Course::where('course_name', 'like', "%{$search}%")->limit(50)->pluck('course_name', 'id'))
+                ->getOptionLabelsUsing(fn (array $values) => Course::find($values)->pluck('course_name', 'id')),
             TextInput::make('title'),
             MarkdownEditor::make('content'),
             FileUpload::make('attachment')->multiple()
@@ -45,14 +46,12 @@ class SendViaMail extends Component implements HasForms
 
     public function send(): void
     {
-        // $AllStudent = Course::with('student')->find($FormData['to']);
-        // $MyStudent = $AllStudent->student;
-
-        
         $FormData = $this->form->getState();
-        $to = Student::whereIn('course_id',$FormData['to'])->get();
+        $courses = Course::find($FormData['to']);
+        $to = Student::whereBelongsTo($courses)->get();
         Notification::send($to, new ViaMail($FormData));
-        $this->form->fill();
+
+        // $this->form->fill();
         $this->dispatchBrowserEvent('toast', [
             'type' => 'success',
             'icon' => 'bx-check-circle',

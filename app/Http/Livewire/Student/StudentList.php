@@ -91,7 +91,7 @@ class StudentList extends Component implements HasTable
                 ->url(fn (Student $record): string => route('student.edit', $record))
                 ->openUrlInNewTab()
                 ->icon('heroicon-s-pencil')->visible(User::find(Auth::user()->id)->hasAnyRole('admin','student'))->tooltip('Edit Student'),
-                Action::make('Report')
+            Action::make('Report')
                 ->label('Report')
                 ->url(fn (Student $record): string => route('student.report', $record))
                 // ->openUrlInNewTab()
