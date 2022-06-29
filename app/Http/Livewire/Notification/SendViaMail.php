@@ -29,7 +29,7 @@ class SendViaMail extends Component implements HasForms
     {
         return [
             MultiSelect::make('to')
-                ->getSearchResultsUsing(fn (string $search) => Course::where('course_name', 'like', "%{$search}%")->limit(50)->pluck('course_name', 'id')->toArray())
+                ->getSearchResultsUsing(fn (string $search) => Course::where('course_name', 'ILIKE', "%{$search}%")->limit(50)->pluck('course_name', 'id')->toArray())
                 ->getOptionLabelsUsing(fn (array $values) => Course::find($values)->pluck('course_name', 'id')->toArray()),
             TextInput::make('title'),
             MarkdownEditor::make('content'),
