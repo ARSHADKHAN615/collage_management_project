@@ -29,8 +29,8 @@ class SendViaMail extends Component implements HasForms
     {
         return [
             MultiSelect::make('to')
-                ->getSearchResultsUsing(fn (string $search) => Course::where('course_name', 'like', "%{$search}%")->limit(50)->pluck('course_name', 'id'))
-                ->getOptionLabelsUsing(fn (array $values) => Course::find($values)->pluck('course_name', 'id')),
+                ->getSearchResultsUsing(fn (string $search) => Course::where('course_name', 'like', "%{$search}%")->limit(50)->pluck('course_name', 'id')->toArray())
+                ->getOptionLabelsUsing(fn (array $values) => Course::find($values)->pluck('course_name', 'id')->toArray()),
             TextInput::make('title'),
             MarkdownEditor::make('content'),
             FileUpload::make('attachment')->multiple()
@@ -38,6 +38,7 @@ class SendViaMail extends Component implements HasForms
             ->maxFiles(2)
             ->maxSize(1024)
             ->enableDownload()
+            ->disk('public_uploads')
             ->acceptedFileTypes(['application/pdf']),
         ];
     }
