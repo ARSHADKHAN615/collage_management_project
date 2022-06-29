@@ -45,7 +45,7 @@ class ViaMail extends Notification
         ->markdown('mail.ViaMail', ['formData' => $this->formData]);
 
         foreach ($this->formData['attachment'] as $file) {
-            $mailMessage->attach(public_path('storage/' . $file));
+            $mailMessage->attach(public_path('uploads/' . $file));
         }
         return $mailMessage;
     }
