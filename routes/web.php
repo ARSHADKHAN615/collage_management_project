@@ -28,7 +28,9 @@ Route::get('/dashboard', function () {
 
 
 
-Route::get('/profile',[UserProfileController::class,'index'])->name('profile');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/profile',[UserProfileController::class,'index'])->name('profile');
+});
 Route::group(['middleware' => ['role:admin|faculty']], function () {
     Route::get('/studentList',StudentList::class)->name('studentList');
     Route::get('/student/{student}/edit',StudentEdit::class)->name('student.edit');
