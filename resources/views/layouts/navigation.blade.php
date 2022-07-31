@@ -4,7 +4,7 @@
         <nav class="px-2 bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700">
             <div class="container flex flex-wrap items-center justify-between mx-auto">
                 <a href="{{ route('dashboard') }}" class="flex items-center" id="third-element-introduction">
-                    <img src="http://rbi.edu.in/wp-content/uploads/2017/01/RBIMS-LOGO.png" class="h-20 mr-3 sm:h-14" alt="Flowbite Logo">
+                    <img src="{{ asset('images/RBIMS-LOGO.png') }}" class="h-20 mr-3 sm:h-14" alt="Flowbite Logo">
                     {{-- <span
                         class="self-center text-xl font-semibold text-gray-700 whitespace-nowrap dark:text-white font-Rubik">Arshad</span> --}}
                 </a>

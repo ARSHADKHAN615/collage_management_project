@@ -43,7 +43,7 @@
     <footer class="p-4 bg-white shadow md:px-6 md:py-8 dark:bg-gray-800">
         <div class="sm:flex sm:items-center sm:justify-between">
             <a href="{{ route('dashboard') }}" class="flex items-center mb-4 sm:mb-0">
-                <img src="http://rbi.edu.in/wp-content/uploads/2017/01/RBIMS-LOGO.png" class="mr-3 h-14" alt="Flowbite Logo">
+                <img src="{{ asset('images/RBIMS-LOGO.png') }}" class="mr-3 h-14" alt="Flowbite Logo">
                 {{-- <span
                     class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white font-Rubik">Arshad</span> --}}
             </a>

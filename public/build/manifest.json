@@ -1,11 +1,15 @@
 {
+  "public/images/02-trust.jpg": {
+    "file": "assets/02-trust.cb5546e1.jpg",
+    "src": "public/images/02-trust.jpg"
+  },
   "resources/js/app.js": {
     "file": "assets/app.d322a3e1.js",
     "src": "resources/js/app.js",
     "isEntry": true
   },
   "resources/css/app.css": {
-    "file": "assets/app.e4450105.css",
+    "file": "assets/app.732eb072.css",
     "src": "resources/css/app.css",
     "isEntry": true
   }

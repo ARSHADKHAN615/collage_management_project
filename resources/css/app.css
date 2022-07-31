@@ -31,7 +31,7 @@ body {
 
 
 .bg-login-img {
-  background-image: url("http://rbi.edu.in/wp-content/uploads/2019/12/02-trust.jpg");
+  background-image: url("/public/images/02-trust.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: 100% 100%;
