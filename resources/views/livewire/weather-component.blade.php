@@ -53,12 +53,12 @@
     </style>
 @endpush
 <div
-    class="flex flex-col justify-between  p-6 mt-3 md:w-1/5 font-Poppins bg-white rounded-lg border border-gray-200 drop-shadow-xl  dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 z-0" id="fourth-element-introduction">
+    class="z-0 flex flex-col justify-between p-6 mt-3 bg-white border border-gray-200 rounded-lg md:w-1/5 font-Poppins drop-shadow-xl dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700" id="fourth-element-introduction">
 
-    <div class="flex justify-between items-center">
+    <div class="flex items-center justify-between">
         <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Today :</h5>
         <div
-            class="inline-flex items-center p-2 rounded-full text-blue-500 bg-blue-100 dark:bg-blue-800 dark:text-blue-200">
+            class="inline-flex items-center p-2 text-blue-500 bg-blue-100 rounded-full dark:bg-blue-800 dark:text-blue-200">
 
             <svg class="w-8 h-8" data-darkreader-inline-stroke="" fill="none" stroke="currentColor"
                 style="--darkreader-inline-stroke:currentColor;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -112,125 +112,3 @@
 
 </div>
 
-
-
-@push('scripts')
-    <script>
-        var ctx1 = document.getElementById("chart-line").getContext("2d");
-
-        var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
-
-        gradientStroke1.addColorStop(1, 'rgba(94, 114, 228, 0.2)');
-        gradientStroke1.addColorStop(0.2, 'rgba(94, 114, 228, 0.0)');
-        gradientStroke1.addColorStop(0, 'rgba(94, 114, 228, 0)');
-        new Chart(ctx1, {
-            type: "line",
-            data: {
-                labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                datasets: [{
-                    label: "Mobile apps",
-                    tension: 0.4,
-                    borderWidth: 0,
-                    pointRadius: 0,
-                    borderColor: "#5e72e4",
-                    backgroundColor: gradientStroke1,
-                    borderWidth: 3,
-                    fill: true,
-                    data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
-                    maxBarThickness: 6
-
-                }],
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        display: false,
-                    }
-                },
-                interaction: {
-                    intersect: false,
-                    mode: 'index',
-                },
-                scales: {
-                    y: {
-                        grid: {
-                            drawBorder: false,
-                            display: true,
-                            drawOnChartArea: true,
-                            drawTicks: false,
-                            borderDash: [5, 5]
-                        },
-                        ticks: {
-                            display: true,
-                            padding: 10,
-                            // color: '#67748e',
-                            color: '#ccc',
-                            font: {
-                                size: 11,
-                                family: "Nunito",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                    x: {
-                        grid: {
-                            drawBorder: false,
-                            display: false,
-                            drawOnChartArea: false,
-                            drawTicks: false,
-                            borderDash: [5, 5]
-                        },
-                        ticks: {
-                            display: true,
-                            color: '#ccc',
-                            padding: 20,
-                            font: {
-                                size: 11,
-                                family: "Nunito",
-                                style: 'normal',
-                                lineHeight: 2
-                            },
-                        }
-                    },
-                },
-            },
-        });
-
-        var doughnut = document.getElementById("doChart");
-        var myDoughnutChart = new Chart(doughnut, {
-            type: 'doughnut',
-            data: {
-                labels: ["Paid", "Unpaid", "Remaining"],
-                datasets: [{
-                    label: ['$2500', '$1800', '$2300'],
-                    data: [2500, 1800, 2300],
-                    backgroundColor: ['#29cc97', '#D83121', '#fec402'],
-                    borderColor: ['#29cc97', '#D83121', '#fec402']
-                }]
-            },
-            options: {
-                responsive: true,
-                cutoutPercentage: 80,
-            }
-        });
-        const toastBox = document.querySelector('.toast_box');
-        window.addEventListener('toast', function({
-            detail: {
-                type,
-                message,
-                icon,
-            }
-        }) {
-            const toastEl = document.createElement('div');
-            toastEl.innerHTML = `<x-toast-alert type="${type}" message="${message}"/>`;
-            toastBox.appendChild(toastEl);
-            setTimeout(() => {
-                toastBox.removeChild(toastEl);
-            }, 3000);
-
-        });
-    </script>
-@endpush

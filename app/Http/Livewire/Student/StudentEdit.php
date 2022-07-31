@@ -13,6 +13,7 @@ use Filament\Forms\Components\TextInput\Mask;
 use Filament\Forms\Components\Toggle;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
+use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
 use Livewire\Component;
 
@@ -77,11 +78,10 @@ class StudentEdit extends Component implements HasForms
         $this->student->update(
             $this->form->getState(),
         );
-        $this->dispatchBrowserEvent('toast', [
-            'type' => 'success',
-            'icon' => 'bx-check-circle',
-            'message' => "Record Updated Successfully!"
-        ]);
+        Notification::make() 
+        ->title('Saved successfully')
+        ->success()
+        ->send();
     }
 
     public function render(): View

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use Carbon\Carbon;
+use Filament\Notifications\Notification;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Request;
 use Livewire\Component;
@@ -31,11 +32,11 @@ class WeatherComponent extends Component
     public function updateWeather()
     {
         $this->getWeather();
-        $this->dispatchBrowserEvent('toast', [
-            'type' => 'success',
-            'icon' => 'bx-check-circle',
-            'message' => "Updated Successfully!"
-        ]);
+        Notification::make() 
+        ->title('Saved successfully')
+        ->success()
+        ->icon('heroicon-o-badge-check')
+        ->send();
     }
 
     public function render()

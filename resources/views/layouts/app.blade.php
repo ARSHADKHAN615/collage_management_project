@@ -10,17 +10,16 @@
 
     <title>@yield('title')</title>
 
-    <!-- Styles -->
     <style>
         [x-cloak] {
             display: none !important;
         }
     </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     @livewireStyles
-    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     @stack('styles')
 
-
+    @livewireScripts
     {{-- Dark mode script --}}
     <script>
         // On page load or when changing themes, best to add inline in `head` to avoid FOUC
@@ -34,18 +33,17 @@
 </head>
 
 <body class="font-sans antialiased body-bg ">
-    <div class="toast_box fixed top-0 left-0 flex flex-col z-50 w-full items-center mt-12" id="toast-main-box"></div>
+    <div class="fixed top-0 left-0 z-50 flex flex-col items-center w-full mt-12 toast_box" id="toast-main-box"></div>
     @include('layouts.navigation')
 
     {{-- Page Content --}}
-    <div class="m-0 lg:m-10 md:m-9  h-full dash-board-glass dark:bg-slate-700  md:rounded-3xl shadow-xl">
+    <div class="h-full m-0 shadow-xl lg:m-10 md:m-9 dash-board-glass dark:bg-slate-700 md:rounded-3xl">
             {{ $slot }}
     </div>
-
-    <footer class="p-4 bg-white  shadow md:px-6 md:py-8 dark:bg-gray-800">
+    <footer class="p-4 bg-white shadow md:px-6 md:py-8 dark:bg-gray-800">
         <div class="sm:flex sm:items-center sm:justify-between">
             <a href="{{ route('dashboard') }}" class="flex items-center mb-4 sm:mb-0">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-8" alt="Flowbite Logo">
+                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 mr-3" alt="Flowbite Logo">
                 <span
                     class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white font-Rubik">Arshad</span>
             </a>
@@ -74,10 +72,9 @@
     <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/driver.js/dist/driver.min.js"></script>
-    @livewireScripts
-    <script src="{{ asset('js/app.js') }}"></script>
     @stack('scripts')
-</body>
 
+    @livewire('notifications')
+</body>
 
 </html>
