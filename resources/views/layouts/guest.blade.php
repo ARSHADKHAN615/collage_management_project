@@ -8,14 +8,16 @@
 
     <title>@yield('title')</title>
     <!-- Styles -->
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @vite(['resources/css/app.css'])
     @livewireStyles
+
+    @livewireScripts
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 </head>
 
-<body>
+<body class="bg-blue-100">
 
-    <div class="font-sans text-gray-900 antialiased">
+    <div class="font-sans antialiased text-gray-900">
         {{ $slot }}
     </div>
 
@@ -23,7 +25,6 @@
 
     <!-- Scripts -->
     <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
 
 </body>
 

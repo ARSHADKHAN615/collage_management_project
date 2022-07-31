@@ -1,22 +1,22 @@
 @section('title', 'Sign In')
 <x-guest-layout>
-    <div class="bg-blue-100 w-full flex justify-center items-center overflow-hidden">
-        <div class="bg-glass m-4 lg:m-24 md:m-24 p-2 rounded-3xl flex flex-wrap justify-center md:w-3/4">
-            <div class="md:w-2/4 lg:w-2/4 w-full">
-                <div class="md:px-6 p-4 flex flex-col justify-between h-full">
+    <div class="flex items-center justify-center w-full overflow-hidden bg-blue-100">
+        <div class="flex flex-wrap justify-center p-2 m-4 bg-glass lg:m-24 md:m-24 rounded-3xl md:w-3/4">
+            <div class="w-full md:w-2/4 lg:w-2/4">
+                <div class="flex flex-col justify-between h-full p-4 md:px-6">
                     <div class="row-span-2 mt-16">
                         <!-- Session Status -->
                         <x-auth-session-status class="mb-4" :status="session('status')" />
 
                         <!-- Validation Errors -->
                         <x-auth-validation-errors :errors="$errors" />
-                        <div class="text-xs text-gray-600 bg-gray-100 inline-block px-2 py-1 rounded font-bold">Khan
+                        <div class="inline-block px-2 py-1 text-xs font-bold text-gray-600 bg-gray-100 rounded">Khan
                         </div>
-                        <h1 class="text-4xl font-bold mb-3">Sign In</h1>
+                        <h1 class="mb-3 text-4xl font-bold">Sign In</h1>
                         <form method="POST" action="{{ route('login') }}" class="mt-6">
                             @csrf
                             <div class="flex flex-wrap my-4">
-                                <div class="flex items-center mr-4 ml-8">
+                                <div class="flex items-center ml-8 mr-4">
                                     <h1 class="text-base font-semibold">As :</h1>
                                 </div>
                                 <div class="flex items-center mr-4">
@@ -63,18 +63,17 @@
                             </x-button>
                         </form>
                     </div>
-                    <div class=" my-2">
+                    <div class="mt-10">
                         <img alt="" class="w-8"
                             src="https://cdn-icons.flaticon.com/png/512/5436/premium/5436970.png?token=exp=1643870868~hmac=3da1c0a2eefe8eef53ffdb1216f82ee5"
                             srcset="" />
-                        <div class="ml-3 text-sm  text-gray-400">&copy; 2021 - 2022 Arshad. All rights
+                        <div class="ml-3 text-sm text-gray-400">&copy; 2021 - 2022 Arshad. All rights
                             reserved</div>
                     </div>
                 </div>
             </div>
-            <div class="rounded-2xl overflow-hidden md:w-2/4 lg:w-2/4 w-full">
-                <img src="https://images.unsplash.com/photo-1599634875158-597d3f647df6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=675&q=80"
-                      class="login_image"/>
+            <div class="w-full overflow-hidden rounded-2xl md:w-2/4 lg:w-2/4 bg-login-img">
+
             </div>
         </div>
     </div>

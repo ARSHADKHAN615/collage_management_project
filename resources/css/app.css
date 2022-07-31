@@ -1,65 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Rubik+Mono+One&family=Space+Grotesk:wght@300;400;700&display=swap');
 @import url('https://unpkg.com/driver.js/dist/driver.min.css');
-@import url('https://unpkg.com/tippy.js@6/dist/tippy.css');
 @import '../../vendor/filament/forms/dist/module.esm.css';
+@import url('https://unpkg.com/tippy.js@6/dist/tippy.css');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-    overflow-x: hidden;
-    /* background-color: #E6E6F4; */
-    box-sizing: border-box;
-    /* background-image: radial-gradient(50% 50% at center, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);  */
-    /* background-image: radial-gradient(50% 50% at center, rgba(178,154,255,1) 15%, rgba(148,187,233,1) 100%);
+  overflow-x: hidden;
+  /* background-color: #E6E6F4; */
+  box-sizing: border-box;
+  /* background-image: radial-gradient(50% 50% at center, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);  */
+  /* background-image: radial-gradient(50% 50% at center, rgba(178,154,255,1) 15%, rgba(148,187,233,1) 100%);
     background-size: 400px 400px  ; */
+}
+
+@layer {
+  .body-bg {
+    background-color: #91cdff;
+    background-image: linear-gradient(201deg, #91cdff 0%, #878bdb 100%);
   }
 
-  @layer {
-    .body-bg {
-      background-color: #91cdff;
-      background-image: linear-gradient(201deg, #91cdff 0%, #878bdb 100%);
-    }
-  
-  
-  }
-  
-  /* .nav-active {
-    @apply text-base font-semibold md:text-blue-700;
-  } */
-  
-  .bg-glass {
-    background: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-    backdrop-filter: blur(6.5px);
-    -webkit-backdrop-filter: blur(6.5px);
-  }
-  .login_image{
-    width: 100% !important;
-    height: auto !important;
-    object-fit: cover;
-  }
-  .dash-board-glass {
-    background: rgba(255, 255, 255, 0.25);
-  
-  }
-  
-  /* .first-step-popover-class {
-    background-color: #91cdff !important;
-    background-image: linear-gradient(201deg, #91cdff 0%, #878bdb 100%);
-  } */
-  
-  #toast-success {
-    animation: slide 1s;
-    transition: all 1s ease-in-out;
-  }
-  
-  @keyframes slide {
-    0% {
-      transform: translateY(-200px);
-    }
-    100% {
-      transform: translateY(0px);
-    }
-  }
+
+}
+
+.nav-active {
+  @apply text-base font-semibold text-blue-700;
+}
+
+
+.bg-login-img {
+  background-image: url("http://rbi.edu.in/wp-content/uploads/2019/12/02-trust.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.bg-glass {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+}
+
+/* .login_image {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: cover;
+} */
+
+.dash-board-glass {
+  background: rgba(255, 255, 255, 0.25);
+
+}

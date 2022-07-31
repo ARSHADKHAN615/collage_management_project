@@ -1,12 +1,12 @@
 <header>
     <div
-        class="code-preview shadow-lg bg-gradient-to-r bg-white  border border-gray-200 dark:border-gray-700 p-2 sm:p-6 dark:bg-gray-800">
+        class="p-2 bg-white border border-gray-200 shadow-lg code-preview bg-gradient-to-r dark:border-gray-700 sm:p-6 dark:bg-gray-800">
         <nav class="px-2 bg-white border-gray-200 dark:bg-gray-800 dark:border-gray-700">
             <div class="container flex flex-wrap items-center justify-between mx-auto">
                 <a href="{{ route('dashboard') }}" class="flex items-center" id="third-element-introduction">
-                    <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-10" alt="Flowbite Logo">
-                    <span
-                        class="self-center text-gray-700 text-xl font-semibold whitespace-nowrap dark:text-white font-Rubik">Arshad</span>
+                    <img src="http://rbi.edu.in/wp-content/uploads/2017/01/RBIMS-LOGO.png" class="h-20 mr-3 sm:h-14" alt="Flowbite Logo">
+                    {{-- <span
+                        class="self-center text-xl font-semibold text-gray-700 whitespace-nowrap dark:text-white font-Rubik">Arshad</span> --}}
                 </a>
                 <div class="flex items-center md:order-2" id="second-element-introduction">
                     <x-dropdown align="right" width="48">
@@ -24,7 +24,7 @@
 
                         <x-slot name="content">
                             <!-- Dropdown menu -->
-                            <div class="py-3 px-4">
+                            <div class="px-4 py-3">
                                 <h5 class="mb-2 text-base font-bold tracking-tight text-gray-900 dark:text-white">
                                     Login as
                                     @role('admin')
@@ -65,7 +65,7 @@
 
                     {{-- Dark Mode Toggle --}}
                     <button id="theme-toggle" type="button"
-                        class="text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2 mx-1">
+                        class="p-2 mx-1 text-sm text-gray-500 rounded-lg dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700">
                         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
                             xmlns="http://www.w3.org/2000/svg">
                             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
@@ -101,7 +101,7 @@
 
                         <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
 
-                            <svg class="w-6 h-6 block m-0" data-darkreader-inline-stroke="" fill="none"
+                            <svg class="block w-6 h-6 m-0" data-darkreader-inline-stroke="" fill="none"
                                 stroke="currentColor" style="--darkreader-inline-stroke:currentColor;"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
