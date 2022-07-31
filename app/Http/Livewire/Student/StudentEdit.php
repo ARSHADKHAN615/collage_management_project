@@ -3,7 +3,7 @@
 namespace App\Http\Livewire\Student;
 
 use App\Models\Student;
-use Filament\Forms\Components\BelongsToSelect;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Card;
 use Filament\Forms\Components\DatePicker;
 use Filament\Forms\Components\FileUpload;
@@ -56,7 +56,7 @@ class StudentEdit extends Component implements HasForms
                                 ->decimalSeparator('.'),
                         ])
                         ->pattern('₹money')),
-                    BelongsToSelect::make('course')
+                    Select::make('course')
                         ->relationship('course', 'course_name'),
                     Toggle::make('status')
                         ->onIcon('heroicon-s-check')
