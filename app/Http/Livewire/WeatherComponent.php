@@ -33,7 +33,7 @@ class WeatherComponent extends Component
     {
         $this->getWeather();
         Notification::make() 
-        ->title('Saved successfully')
+        ->title('Update successfully')
         ->success()
         ->icon('heroicon-o-badge-check')
         ->send();
