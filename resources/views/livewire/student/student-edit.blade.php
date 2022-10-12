@@ -1,6 +1,6 @@
 <form wire:submit.prevent="save" class="p-5">
     {{ $this->form }}
-    <x-livewire-btn>
+    <x-livewire-btn forLoading="save">
         <x-slot:loadingText>
             Updating...
             </x-slot>

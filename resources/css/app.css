@@ -54,3 +54,35 @@ body {
   background: rgba(255, 255, 255, 0.25);
 
 }
+
+.toast-box {
+  transition: all 0.5s ease-in-out;
+}
+
+.toast_box {
+  width: 25%;
+  display: inline-block;
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 1000;
+  transition: all 0.5s ease-in-out;
+}
+
+#toast-success {
+  animation: slide 0.3s;
+  transition: all 0.5s ease-in-out;
+}
+
+@keyframes slide {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}

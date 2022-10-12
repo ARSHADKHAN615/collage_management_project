@@ -33,7 +33,7 @@
 </head>
 
 <body class="font-sans antialiased body-bg ">
-    <div class="fixed top-0 left-0 z-50 flex flex-col items-center w-full mt-12 toast_box" id="toast-main-box"></div>
+    <div class="toast_box" id="toast-main-box"></div>
     @include('layouts.navigation')
 
     {{-- Page Content --}}
@@ -72,6 +72,31 @@
     <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/driver.js/dist/driver.min.js"></script>
+    <script>
+        const toastBox = document.querySelector('.toast_box');
+        window.addEventListener('toast', function({
+            detail: {
+                type,
+                message,
+                icon,
+            }
+        }) {
+            const toastEl = document.createElement('div');
+            console.log(type);
+            toastEl.innerHTML = `<x-toast-alert type="${type}" icon="${icon}" message="${message}"/>`;
+            toastEl.classList.add('toast-box');
+            toastBox.appendChild(toastEl);
+            setTimeout(() => {
+                toastEl.classList.add('opacity-0');
+            }, 5000);
+            setTimeout(() => {
+                toastEl.remove();
+            }, 6000);
+        });
+        function closeBtn(e) {
+            e.parentElement.parentElement.remove();
+        }
+    </script>
     @stack('scripts')
 
     @livewire('notifications')

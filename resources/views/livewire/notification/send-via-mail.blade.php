@@ -1,6 +1,6 @@
 <form wire:submit.prevent="send" class="p-5">
     {{ $this->form }}
-    <x-livewire-btn>
+    <x-livewire-btn forLoading="send">
         <x-slot:loadingText>
             Sending...
             </x-slot>
@@ -14,23 +14,8 @@
     </x-livewire-btn>
 </form>
 @push('scripts')
-    <script>
-        const toastBox = document.querySelector('.toast_box');
-        window.addEventListener('toast', function({
-            detail: {
-                type,
-                message,
-                icon,
-            }
-        }) {
-            const toastEl = document.createElement('div');
-            toastEl.innerHTML = `<x-toast-alert type="${type}" message="${message}"/>`;
-            toastBox.appendChild(toastEl);
-            setTimeout(() => {
-                toastBox.removeChild(toastEl);
-            }, 3000);
+     <script>
 
-        });
 
         // window.livewire.onError(statusCode => {
         //     if (statusCode === 500) {

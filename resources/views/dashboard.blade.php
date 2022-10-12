@@ -1,14 +1,14 @@
 @section('title', 'Welcome back, ' . Auth::user()->name)
 <x-app-layout>
     <div class="py-10">
-        <div class="flex justify-around flex-wrap">
+        <div class="flex flex-wrap justify-around">
             <x-dashboard-cards>
                 <x-slot name="header">
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Hello,
                         {{ Auth::user()->name }}</h5>
 
                     <div
-                        class="inline-flex items-center p-2 rounded-full text-gray-500 bg-gray-100 dark:bg-gray-800 dark:text-gray-200">
+                        class="inline-flex items-center p-2 text-gray-500 bg-gray-100 rounded-full dark:bg-gray-800 dark:text-gray-200">
 
                         <svg class="w-8 h-8" data-darkreader-inline-stroke="" fill="none" stroke="currentColor"
                             style="--darkreader-inline-stroke:currentColor;" viewBox="0 0 24 24"
@@ -34,20 +34,19 @@
                     </h6>
                 </x-slot>
                 <x-slot name="footer">
-                @hasanyrole('admin|faculty')
-                    <button type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">
+                    @hasanyrole('admin|faculty')
+                        <button type="button"
+                            class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">
                             {{ __('Go to Profile') }}
-                      </button>
-@else
-         <a href="{{ route('profile') }}" target="_d">
-                    <button type="button" class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">
-                            {{ __('Go to Profile') }}
-                      </button>
-                 </a>
-@endhasanyrole
-                @role('student')
-              
-                 @endrole                    
+                        </button>
+                    @else
+                        <a href="{{ route('profile') }}" target="_d">
+                            <button type="button"
+                                class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 ">
+                                {{ __('Go to Profile') }}
+                            </button>
+                        </a>
+                    @endhasanyrole
                 </x-slot>
             </x-dashboard-cards>
 
@@ -56,7 +55,7 @@
                     <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Fees
                         info :</h5>
                     <div
-                        class="inline-flex items-center p-2 rounded-full text-green-500 bg-green-100 dark:bg-green-800 dark:text-green-200">
+                        class="inline-flex items-center p-2 text-green-500 bg-green-100 rounded-full dark:bg-green-800 dark:text-green-200">
 
                         <svg class="w-8 h-8" data-darkreader-inline-stroke="" fill="none" stroke="currentColor"
                             style="--darkreader-inline-stroke:currentColor;" viewBox="0 0 24 24"
@@ -78,11 +77,11 @@
             <x-last-login />
             <livewire:weather-component />
         </div>
-        <div class="flex justify-around mt-5 flex-wrap">
+        <div class="flex flex-wrap justify-around mt-5">
             <div
-                class="block p-6 mt-3 md:w-2/5 w-full h-full lg:h-3/6 font-Poppins bg-white rounded-lg border border-gray-200 drop-shadow-xl hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+                class="block w-full h-full p-6 mt-3 bg-white border border-gray-200 rounded-lg md:w-2/5 lg:h-3/6 font-Poppins drop-shadow-xl hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
 
-                <div class="flex flex-wrap justify-between items-center">
+                <div class="flex flex-wrap items-center justify-between">
                     <h5 class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Your Performance :</h5>
                     </h5>
                     <button type="button"
@@ -104,49 +103,49 @@
                 </div>
 
             </div>
-            <div class="block mb-2  mt-3 rounded-lg  drop-shadow-xl md:w-2/5 w-full h-full lg:h-3/6">
+            <div class="block w-full h-full mt-3 mb-2 rounded-lg drop-shadow-xl md:w-2/5 lg:h-3/6">
                 <div id="indicators-carousel" class="relative" data-carousel="static">
 
-                    <div class="overflow-hidden relative h-48 rounded-lg sm:h-64 xl:h-96 2xl:h-96">
+                    <div class="relative h-48 overflow-hidden rounded-lg sm:h-64 xl:h-96 2xl:h-96">
 
-                        <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-0 z-20"
+                        <div class="absolute inset-0 z-20 transition-all duration-700 ease-in-out transform translate-x-0"
                             data-carousel-item="active">
                             <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg"
-                                class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
+                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                 alt="...">
                         </div>
 
-                        <div class="duration-700 ease-in-out absolute inset-0 transition-all transform translate-x-full z-10"
+                        <div class="absolute inset-0 z-10 transition-all duration-700 ease-in-out transform translate-x-full"
                             data-carousel-item="">
                             <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg"
-                                class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
+                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                 alt="...">
                         </div>
 
-                        <div class="hidden duration-700 ease-in-out absolute inset-0 transition-all transform"
+                        <div class="absolute inset-0 hidden transition-all duration-700 ease-in-out transform"
                             data-carousel-item="">
                             <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg"
-                                class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
+                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                 alt="...">
                         </div>
 
-                        <div class="hidden duration-700 ease-in-out absolute inset-0 transition-all transform"
+                        <div class="absolute inset-0 hidden transition-all duration-700 ease-in-out transform"
                             data-carousel-item="">
                             <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg"
-                                class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
+                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                 alt="...">
                         </div>
 
-                        <div class="duration-700 ease-in-out absolute inset-0 transition-all transform -translate-x-full z-10"
+                        <div class="absolute inset-0 z-10 transition-all duration-700 ease-in-out transform -translate-x-full"
                             data-carousel-item="">
                             <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg"
-                                class="block absolute top-1/2 left-1/2 w-full -translate-x-1/2 -translate-y-1/2"
+                                class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
                                 alt="...">
                         </div>
                     </div>
 
-                    <div class="flex absolute bottom-5 left-1/2 z-30 space-x-3 -translate-x-1/2">
-                        <button type="button" class="w-3 h-3 rounded-full bg-white dark:bg-gray-800"
+                    <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                        <button type="button" class="w-3 h-3 bg-white rounded-full dark:bg-gray-800"
                             aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
                         <button type="button"
                             class="w-3 h-3 rounded-full bg-white/50 dark:bg-gray-800/50 hover:bg-white dark:hover:bg-gray-800"
@@ -163,10 +162,10 @@
                     </div>
 
                     <button type="button"
-                        class="flex absolute top-0 left-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+                        class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                         data-carousel-prev="">
                         <span
-                            class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                            class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                             <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -177,10 +176,10 @@
                         </span>
                     </button>
                     <button type="button"
-                        class="flex absolute top-0 right-0 z-30 justify-center items-center px-4 h-full cursor-pointer group focus:outline-none"
+                        class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
                         data-carousel-next="">
                         <span
-                            class="inline-flex justify-center items-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                            class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
                             <svg class="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none"
                                 stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

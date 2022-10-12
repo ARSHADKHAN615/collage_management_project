@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Student;
 
+use App\helpers\TostMessage;
 use App\Models\Student;
 use Filament\Forms\Components\Select;
 use Filament\Forms\Components\Card;
@@ -75,13 +76,14 @@ class StudentEdit extends Component implements HasForms
     }
     public function save(): void
     {
-        $this->student->update(
-            $this->form->getState(),
-        );
-        Notification::make() 
-        ->title('Saved successfully')
-        ->success()
-        ->send();
+        try{
+            $this->student->update(
+                $this->form->getState(),
+            );
+            $this->dispatchBrowserEvent('toast', TostMessage::success('Student Update Successfully'));      
+        } catch (\Exception $e) {
+            $this->dispatchBrowserEvent('toast', TostMessage::error('Something went wrong'));
+        }
     }
 
     public function render(): View

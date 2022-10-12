@@ -6,14 +6,15 @@ use Illuminate\View\Component;
 
 class livewireBtn extends Component
 {
+    public $forLoading;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($forLoading)
     {
-        //
+        $this->forLoading = $forLoading;
     }
 
     /**

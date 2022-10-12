@@ -12,7 +12,7 @@ class ToastAlert extends Component
      * @var string
      */
     public $type;
-
+    public $icon;
     /**
      * The alert message.
      *
@@ -24,10 +24,11 @@ class ToastAlert extends Component
      *
      * @return void
      */
-    public function __construct($type, $message)
+    public function __construct($type, $message, $icon)
     {
         $this->type = $type;
         $this->message = $message;
+        $this->icon = $icon;
     }
 
     /**
