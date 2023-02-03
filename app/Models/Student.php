@@ -17,6 +17,10 @@ class Student extends Model
         // Return email address and name...
         return [$this->student_email => $this->student_name];
     }
+    public function routeNotificationForWhatsApp()
+    {
+      return $this->student_phone;
+    }
 
     public function withDelay($notifiable)
     {
